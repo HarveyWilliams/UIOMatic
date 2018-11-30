@@ -95,6 +95,7 @@
         };
 
         $scope.getObjectKey = function (object) {
+            console.log(object, $scope.primaryKeyColumnName, object[$scope.primaryKeyColumnName]);
             return object[$scope.primaryKeyColumnName];
         }
 

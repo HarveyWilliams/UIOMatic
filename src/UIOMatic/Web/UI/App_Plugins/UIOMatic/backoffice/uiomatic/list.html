@@ -82,6 +82,7 @@
                                     <div ng-switch="isColumnLinkable(prop, $index)" ng-init="property = {value:row[prop.key], view:prop.view, config:prop.config}"><!-- Fake property object so we can reuse views -->
                                         <a class="table__link" ng-click="navigate('/uiomatic/uiomatic/edit/' + getObjectKey(row) + '%3Fta=' + typeAlias)" ng-switch-when="true">
                                             <span ng-include="prop.view"></span>
+                                            <span id="test">{{getObjectKey(row)}}</span>
                                         </a>
                                         <span ng-switch-when="false">
                                             <span ng-include="prop.view"></span>

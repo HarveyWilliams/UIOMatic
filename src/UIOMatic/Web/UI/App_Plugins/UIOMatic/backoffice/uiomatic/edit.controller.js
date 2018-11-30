@@ -177,12 +177,15 @@ angular.module("umbraco").controller("uioMatic.ObjectEditController",
 	        }, 202); // 202 is very specific, as tabs init code runs on a 200 timeout so gotta wait for that first
 	    });
 
-	    var setValues = function () {
-	        for (var theKey in $scope.object) {
+        var setValues = function () {
+            console.log($scope.object, $scope.properties)
+            for (var theKey in $scope.object) {
+                console.log($scope.object.hasOwnProperty(theKey), theKey)
 	            if ($scope.object.hasOwnProperty(theKey)) {
-	                if (_.where($scope.properties, { key: theKey }).length > 0) {
+                    if (_.where($scope.properties, { key: theKey }).length || _.where($scope.properties, { columnName: theKey }).length) {
+                        console.log('okay')
 	                    for (var prop in $scope.properties) {
-	                        if ($scope.properties[prop].key == theKey) {
+                            if ($scope.properties[prop].key == theKey || $scope.properties[prop].columnName == theKey) {
 	                            $scope.properties[prop].value = $scope.object[theKey];
 	                        }
 	                    }
