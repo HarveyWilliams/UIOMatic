@@ -24,6 +24,10 @@ namespace UIOMatic.Extensions
             var attr2 = type.GetPrimaryKeyColumn();
             if (attr2 != null)
                 return attr2.Name.Trim('[', ']');
+
+            var attr3 = type.GetCustomAttribute<ColumnAttribute>();
+            if (attr3 != null)
+                return attr3.Name;
             
             return "Id";
         }
