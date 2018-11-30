@@ -232,7 +232,7 @@ namespace UIOMatic.Services
 
                             var pi = new UIOMaticEditablePropertyInfo
                             {
-                                Key = prop.Name,
+                                Key = prop.GetName(),
                                 Name = attri2.Name.IsNullOrWhiteSpace() ? prop.Name : attri2.Name,
                                 ColumnName = prop.GetColumnName(),
                                 Tab = attri2.Tab.IsNullOrWhiteSpace() ? "General" : attri2.Tab,

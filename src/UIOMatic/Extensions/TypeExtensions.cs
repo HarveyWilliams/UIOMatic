@@ -15,6 +15,17 @@ namespace UIOMatic.Extensions
             return name;
         }
 
+        public static string GetName(this PropertyInfo prop)
+        {
+            var type = prop.GetType();
+
+            var attr = type.GetCustomAttribute<ColumnAttribute>();
+            if (attr != null)
+                return attr.Name;
+
+            return prop.Name;
+        }
+
         public static string GetPrimaryKeyName(this Type type)
         {
             var attr = type.GetCustomAttribute<PrimaryKeyAttribute>(true);
